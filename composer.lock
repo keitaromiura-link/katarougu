@@ -1,0 +1,62 @@
+{
+    "name": "miura/katarougu",
+    "description": "gamedayo",
+    "type": "project",
+    "require": {
+        "codeigniter/framework": "dev-master"
+    },
+    "license": "MIT"
+}
+miura@BL-031:~/git/katarougu$ cat composer.lock
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "7e9a6631d4872d166ef09a5b381a7707",
+    "packages": [
+        {
+            "name": "codeigniter/framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bcit-ci/CodeIgniter.git",
+                "reference": "9c07c3697bab0bf43e10daf59068497dd3a0a9fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bcit-ci/CodeIgniter/zipball/9c07c3697bab0bf43e10daf59068497dd3a0a9fd",
+                "reference": "9c07c3697bab0bf43e10daf59068497dd3a0a9fd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "1.1.*"
+            },
+            "suggest": {
+                "paragonie/random_compat": "Provides better randomness in PHP 5.x"
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The CodeIgniter framework",
+            "homepage": "https://codeigniter.com",
+            "time": "2017-01-10 10:31:10"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "codeigniter/framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

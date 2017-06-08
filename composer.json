@@ -1,0 +1,9 @@
+{
+    "name": "miura/katarougu",
+    "description": "gamedayo",
+    "type": "project",
+    "require": {
+        "codeigniter/framework": "dev-master"
+    },
+    "license": "MIT"
+}
