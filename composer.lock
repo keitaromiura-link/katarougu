@@ -1,14 +1,4 @@
 {
-    "name": "miura/katarougu",
-    "description": "gamedayo",
-    "type": "project",
-    "require": {
-        "codeigniter/framework": "dev-master"
-    },
-    "license": "MIT"
-}
-miura@BL-031:~/git/katarougu$ cat composer.lock
-{
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
