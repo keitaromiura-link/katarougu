@@ -51,7 +51,7 @@ class Migration_Base extends CI_Migration {
             //customer
             $this->dbforge->add_field(array(
                 'cus_id' => array(
-                    'type' => 'vachar',
+                    'type' => 'varchar',
                     'constraint' => 64,
                     'null' => false,
                     'comment' => '会員ID'
