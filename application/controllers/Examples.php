@@ -72,6 +72,7 @@ class Examples extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
+			$crud->set_theme('datatables');
 			$crud->set_table('customer');
 			$crud->columns('cus_id','cus_ins_timestamp','cus_upd_timestamp');
 			$crud->display_as('cus_id','会員番号')
@@ -79,7 +80,9 @@ class Examples extends CI_Controller {
 				 ->display_as('cus_upd_timestamp','更新日時');
 			$crud->set_subject('customer');
 			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
-
+			echo "<pre>";
+			print_r($this->db->list_tables());
+			die();
 			$output = $crud->render();
 
 			$this->_example_output($output);
