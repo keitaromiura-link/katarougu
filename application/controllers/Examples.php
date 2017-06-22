@@ -72,13 +72,13 @@ class Examples extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
-			$crud->set_table('customers');
-			$crud->columns('customerName','contactLastName','phone','city','country','salesRepEmployeeNumber','creditLimit');
-			$crud->display_as('salesRepEmployeeNumber','from Employeer')
-				 ->display_as('customerName','Name')
-				 ->display_as('contactLastName','Last Name');
+			$crud->set_table('customer');
+			$crud->columns('cus_id','cus_ins_timestamp','cus_upd_timestamp');
+			$crud->display_as('cus_id','会員番号')
+				 ->display_as('cus_ins_timestamp','登録日時')
+				 ->display_as('cus_upd_timestamp','更新日時');
 			$crud->set_subject('Customer');
-			$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
+			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
 
 			$output = $crud->render();
 
