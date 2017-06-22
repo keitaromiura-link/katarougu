@@ -7,6 +7,7 @@ class Migration_Base extends CI_Migration {
         public function up()
         {
             //config
+            $this->dbforge->drop_table('config');
             $this->dbforge->add_field(array(
                 'cfg_name' => array(
                     'type' => 'VARCHAR',
