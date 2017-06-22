@@ -49,19 +49,20 @@ class Examples extends CI_Controller {
 		}
 	}
 
-	public function employees_management()
+	public function catalog_management()
 	{
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('datatables');
-			$crud->set_table('employees');
-			$crud->set_relation('officeCode','offices','city');
-			$crud->display_as('officeCode','Office City');
-			$crud->set_subject('Employee');
+			$crud->set_table('catalog');
+			$crud->display_as('cl_id','カタログID')
+			     ->display_as('cl_name','カタログ名')
+			     ->display_as('cl_ins_timestamp','カタログID')
+			     ->display_as('cl_ins_timestamp','カタログID')
+			;
+			$crud->set_subject('カタログ');
 
-			$crud->required_fields('lastName');
-
-			$crud->set_field_upload('file_url','assets/uploads/files');
+			$crud->required_fields('cl_name');
 
 			$output = $crud->render();
 
