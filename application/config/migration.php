@@ -57,7 +57,7 @@ $config['migration_table'] = 'migrations';
 | in your code to have the latest migration.
 |
 */
-$config['migration_auto_latest'] = false;
+$config['migration_auto_latest'] = true;
 
 /*
 |--------------------------------------------------------------------------
