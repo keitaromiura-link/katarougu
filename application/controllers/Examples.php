@@ -91,13 +91,14 @@ class Examples extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			$crud->set_table('catalog_item');
+			$crud->columns('cli_id','cli_cl_id','cli_name','cli_ins_timestamp','cli_upd_timestamp');
 			$crud->display_as('cli_id','カタログ項目ID')
 			->display_as('cli_cl_id','カタログ名')
 			->display_as('cli_name','カタログ項目名')
 			->display_as('cli_ins_timestamp','登録日時')
 			->display_as('cli_upd_timestamp','更新日時')
 			;
-			$crud->set_subject('カタログ項目名');
+			$crud->set_subject('カタログ項目');
 
 			$output = $crud->render();
 
