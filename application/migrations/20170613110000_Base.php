@@ -8,6 +8,10 @@ class Migration_Base extends CI_Migration {
         {
             //config
             $this->dbforge->drop_table('config');
+            $this->dbforge->drop_table('customer');
+            $this->dbforge->drop_table('session');
+            $this->dbforge->drop_table('game');
+
             $this->dbforge->add_field(array(
                 'cfg_name' => array(
                     'type' => 'VARCHAR',
@@ -264,7 +268,7 @@ class Migration_Base extends CI_Migration {
                     'comment' => '更新日時'
                 ),
             ));
-            $this->dbforge->add_key('cl_id', TRUE);
+            $this->dbforge->add_key('cli_id', TRUE);
             $attributes = array(
                 'ENGINE' => 'InnoDB',
                 'COLLATE' => 'utf8_general_ci',
