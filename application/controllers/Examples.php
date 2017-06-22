@@ -90,6 +90,7 @@ class Examples extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
+			$crud->set_theme('datatables');
 			$crud->set_table('catalog_item');
 			$crud->columns('cli_id','cli_cl_id','cli_name','cli_ins_timestamp','cli_upd_timestamp');
 			$crud->display_as('cli_id','カタログ項目ID')
