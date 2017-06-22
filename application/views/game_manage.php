@@ -16,8 +16,8 @@
   <body>
     <h1>ゲーム管理画面</h1>
 
-    <a class="btn btn-default" href="<?php echo site_url('game/start')?>" role="button">ゲームを開始する</a>
-    <a class="btn btn-default" href="<?php echo site_url('examples/customers_management')?>" role="button">データを確認する</a>
+    <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('game/start')?>" role="button">ゲームを開始する</a>
+    <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('examples/customers_management')?>" role="button">データを確認する</a>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
