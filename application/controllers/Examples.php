@@ -91,7 +91,6 @@ class Examples extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			$crud->set_table('catalog_item');
-			$crud->set_relation('cli_cl_id','catalog','cl_name');
 			$crud->display_as('cli_id','カタログ項目ID')
 			->display_as('cli_cl_id','カタログ名')
 			->display_as('cli_name','カタログ項目名')
