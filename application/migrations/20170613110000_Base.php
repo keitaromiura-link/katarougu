@@ -124,7 +124,7 @@ class Migration_Base extends CI_Migration {
                     'comment' => 'ゲームID'
                 ),
                 'game_cus_id_parent' => array(
-                    'type' => 'vachar',
+                    'type' => 'varchar',
                     'constraint' => 64,
                     'null' => false,
                     'comment' => '親（会員ID）'
@@ -206,7 +206,7 @@ class Migration_Base extends CI_Migration {
                     'comment' => 'カタログID'
                 ),
                 'cl_name' => array(
-                    'type' => 'vachar',
+                    'type' => 'varchar',
                     'constraint' => 64,
                     'null' => false,
                     'comment' => 'カタログ名'
@@ -247,7 +247,7 @@ class Migration_Base extends CI_Migration {
                     'comment' => 'カタログID'
                 ),
                 'cli_name' => array(
-                    'type' => 'vachar',
+                    'type' => 'varchar',
                     'constraint' => 64,
                     'null' => false,
                     'comment' => 'カタログ項目名'
