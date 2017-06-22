@@ -99,6 +99,7 @@ class Examples extends CI_Controller {
 			->display_as('cli_ins_timestamp','登録日時')
 			->display_as('cli_upd_timestamp','更新日時')
 			;
+			$crud->set_relation('cli_cl_id','catalog','cl_name');
 			$crud->set_subject('カタログ項目');
 
 			$output = $crud->render();
