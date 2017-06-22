@@ -57,8 +57,8 @@ class Examples extends CI_Controller {
 			$crud->set_table('catalog');
 			$crud->display_as('cl_id','カタログID')
 			     ->display_as('cl_name','カタログ名')
-			     ->display_as('cl_ins_timestamp','カタログID')
-			     ->display_as('cl_ins_timestamp','カタログID')
+			     ->display_as('cl_ins_timestamp','登録日時')
+			     ->display_as('cl_upd_timestamp','更新日時')
 			;
 			$crud->set_subject('カタログ');
 
