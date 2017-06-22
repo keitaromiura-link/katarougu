@@ -80,9 +80,6 @@ class Examples extends CI_Controller {
 				 ->display_as('cus_upd_timestamp','更新日時');
 			$crud->set_subject('customer');
 			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
-			echo "<pre>";
-			print_r($this->db->list_tables());
-			die();
 			$output = $crud->render();
 
 			$this->_example_output($output);
