@@ -102,6 +102,9 @@ class Examples extends CI_Controller {
 			$crud->set_relation('cli_cl_id','catalog','cl_name');
 			$crud->set_subject('カタログ項目');
 
+			$crud->required_fields('cli_cl_id');
+			$crud->required_fields('cli_name');
+
 			$output = $crud->render();
 
 			$this->_example_output($output);
