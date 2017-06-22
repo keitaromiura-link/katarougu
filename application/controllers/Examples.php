@@ -77,7 +77,7 @@ class Examples extends CI_Controller {
 			$crud->display_as('cus_id','会員番号')
 				 ->display_as('cus_ins_timestamp','登録日時')
 				 ->display_as('cus_upd_timestamp','更新日時');
-			$crud->set_subject('Customer');
+			$crud->set_subject('customer');
 			//$crud->set_relation('salesRepEmployeeNumber','employees','lastName');
 
 			$output = $crud->render();
