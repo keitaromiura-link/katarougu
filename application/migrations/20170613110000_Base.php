@@ -11,6 +11,7 @@ class Migration_Base extends CI_Migration {
             $this->dbforge->drop_table('customer');
             $this->dbforge->drop_table('session');
             $this->dbforge->drop_table('game');
+            $this->dbforge->drop_table('turn');
 
             $this->dbforge->add_field(array(
                 'cfg_name' => array(
