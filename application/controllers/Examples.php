@@ -55,6 +55,7 @@ class Examples extends CI_Controller {
 
 			$crud->set_theme('datatables');
 			$crud->set_table('catalog');
+			$crud->columns('cl_id','cl_name','cl_ins_timestamp','cl_upd_timestamp');
 			$crud->display_as('cl_id','カタログID')
 			     ->display_as('cl_name','カタログ名')
 			     ->display_as('cl_ins_timestamp','登録日時')
