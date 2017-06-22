@@ -86,16 +86,19 @@ class Examples extends CI_Controller {
 			$this->_example_output($output);
 	}
 
-	public function orders_management()
+	public function catalog_item_management()
 	{
 			$crud = new grocery_CRUD();
 
-			$crud->set_relation('customerNumber','customers','{contactLastName} {contactFirstName}');
-			$crud->display_as('customerNumber','Customer');
-			$crud->set_table('orders');
-			$crud->set_subject('Order');
-			$crud->unset_add();
-			$crud->unset_delete();
+			$crud->set_table('catalog_item');
+			$crud->set_relation('cli_cl_id','catalog','cl_name');
+			$crud->display_as('cli_id','カタログ項目ID')
+			->display_as('cli_cl_id','カタログ名')
+			->display_as('cli_name','カタログ項目名')
+			->display_as('cli_ins_timestamp','登録日時')
+			->display_as('cli_upd_timestamp','更新日時')
+			;
+			$crud->set_subject('カタログ項目名');
 
 			$output = $crud->render();
 

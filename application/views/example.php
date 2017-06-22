@@ -15,6 +15,7 @@ foreach($css_files as $file): ?>
 	<div>
 		<a href='<?php echo site_url('examples/customers_management')?>'>参加者</a> |
 		<a href='<?php echo site_url('examples/catalog_management')?>'>カタログ</a> |
+		<a href='<?php echo site_url('examples/catalog_item_management')?>'>カタログ品</a> |
 
 	</div>
 	<div style='height:20px;'></div>
