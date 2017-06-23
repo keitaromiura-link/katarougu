@@ -92,8 +92,60 @@ class Examples extends CI_Controller {
 			$this->_example_output($output);
 	}
 
-	public function valueToEuro($value, $row)
+	public function game()
 	{
-		return $value.' &euro;';
+	    $crud = new grocery_CRUD();
+
+	    $crud->set_theme('datatables');
+	    $crud->set_table('game');
+	    $crud->columns('game_id','game_cus_id_parent','game_now_turn_number','game_cl_id','game_ins_timestamp','game_upd_timestamp');
+	    $crud->display_as('game_id','ゲームID')
+	    ->display_as('game_cus_id_parent','親')
+	    ->display_as('game_now_turn_number','現在のターン数')
+	    ->display_as('game_cl_id','カタログ名')
+	    ->display_as('game_ins_timestamp','登録日時')
+	    ->display_as('game_upd_timestamp','更新日時')
+	    ;
+	    $crud->set_relation('game_cl_id','catalog','cl_name');
+	    $crud->set_relation('game_cus_id_parent','cutomser','cus_name');
+	    $crud->set_subject('ゲーム');
+
+	    $crud->required_fields('game_cus_id_parent');
+	    $crud->required_fields('game_now_turn_number');
+	    $crud->required_fields('game_cl_id');
+
+	    $output = $crud->render();
+
+	    $this->_example_output($output);
+	}
+
+	public function turn()
+	{
+	    $crud = new grocery_CRUD();
+
+	    $crud->set_theme('datatables');
+	    $crud->set_table('turn');
+	    $crud->columns('turn_id','turn_cus_id','turn_cli_id','turn_game_id','turn_number','turn_ins_timestamp','turn_upd_timestamp');
+	    $crud->display_as('turn_id','ターンID')
+	    ->display_as('turn_cus_id','参加者')
+	    ->display_as('turn_cli_id','選択したカタログ項目名')
+	    ->display_as('turn_game_id','ゲームID')
+	    ->display_as('turn_number','ターン数')
+	    ->display_as('turn_ins_timestamp','登録日時')
+	    ->display_as('turn_upd_timestamp','更新日時')
+	    ;
+	    $crud->set_relation('turn_cli_id','catalog_item','cli_name');
+	    $crud->set_relation('turn_cus_id','cutomser','cus_name');
+	    $crud->set_relation('turn_game_id','game','game_id');
+	    $crud->set_subject('ターン');
+
+	    $crud->required_fields('turn_cus_id');
+	    $crud->required_fields('turn_cli_id');
+	    $crud->required_fields('turn_game_id');
+	    $crud->required_fields('turn_number');
+
+	    $output = $crud->render();
+
+	    $this->_example_output($output);
 	}
 }
