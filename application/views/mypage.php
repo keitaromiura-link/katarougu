@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Welcome</title>
+    <title>MyPage</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,14 +17,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </head>
   <body>
 
-    <h1>ゲームへようこそ</h1>
-    <form action="<?php echo site_url('top/join')?>">
-      <div class="form-group">
-        <label for="cus_name">参加者名</label>
-        <input type="text" class="form-control" id="cus_name"  value="<?php echo html_escape($cus_name)?>" placeholder="予約太郎">
-      </div>
-      <button type="submit" class="btn btn-default btn-lg btn-block" >ゲームに参加する</button>
-    </form>
+    <h1><?php html_escape($my->cus_name)?>さん参加ありがとうございます</h1>
+    <div>
+      <dl>
+        <dt>現在のステイタス</dt>
+        <dd>
+        <?php if ($now_game_id == 0) {?>
+            現在開催待ちです。<br>
+            しばらくお待ち下さい。
+        <?php } else { ?>
+            <?php if ($game) {?>
+                現在のゲームIDは「<?php echo $game->game_id?>」、ターンは<?php $game->game_now_turn_number?>ターン目です。<br>
+            <?php } ?>
+            <?php if ($parent) { ?>
+            	親は<?php echo html_escape($parent->cus_name)?>さんです。<br>
+            <?php } ?>
+            <?php if ($catalog) { ?>
+            	カタログは<?php echo html_escape($catalog->cl_name)?>です。<br>
+            <?php } ?>
+        <?php } ?>
+        </dd>
+      </dl>
+    </div>
+
+    <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('top/mypage')?>" role="button">更新する</a>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
