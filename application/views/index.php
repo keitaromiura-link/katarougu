@@ -20,8 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <h1>ゲームへようこそ</h1>
     <form action="<?php echo site_url('top/join')?>">
       <div class="form-group">
-        <label for="cus_name">参加者名</label>
+        <label for="cus_name <?php if ($cus_name_error) { ?>has-error<?php } ?>">参加者名</label>
         <input type="text" class="form-control" id="cus_name"  value="<?php echo html_escape($cus_name)?>" placeholder="予約太郎">
+        <?php if ($cus_name_error) {?>
+            <span id="helpBlock2" class="help-block"><?php echo html_escape($cus_name_error)?></span>
+        <?php } ?>
       </div>
       <button type="submit" class="btn btn-default btn-lg btn-block" >ゲームに参加する</button>
     </form>

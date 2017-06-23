@@ -10,8 +10,14 @@ class Top extends CI_Controller {
             $cus_name = $this->input->post("cus_name");
         }
 
+        $cus_name_error = "";
+        if (isset($_SESSION['cus_name_error']))  {
+            $cus_name_error = $_SESSION['cus_name_error'];
+        }
+
         $data = array(
             "cus_name" => $cus_name,
+            "cus_name_error" => $cus_name_error,
         );
         $this->load->view('index', $data);
     }
@@ -23,6 +29,8 @@ class Top extends CI_Controller {
         $cus_name = $this->input->post("cus_name");
         if (!$cus_name){
             //名前がなければエラーにする。
+            $_SESSION['cus_name_error'] = "名前を入力してください";
+            $this->session->mark_as_flash('cus_name_error');
             redirect("top/mypage");
         }
 
