@@ -94,10 +94,18 @@ class Game extends CI_Controller {
         );
         $this->db->insert("game", $data);
         $game_id = $this->db->insert_id();
+
+        $catalog_item_num = $this->db->where("cli_cli_id", $catalog->cl_id)->from('catalog_item')->count_all_results();
+        //カタログ項目がなければリダイレクト
+        if ($catalog_item_num == 0) {
+            $_SESSION['game_start_error'] = 350;
+            $this->session->mark_as_flash('game_start_error');
+            redirect("game/manage");
+        }
         //ターンデータを作成する
         $data = array();
         foreach ($members as $member) {
-            for ($i = 1; $i <= 7; $i++) {
+            for ($i = 1; $i <= $catalog_item_num; $i++) {
                 $tmp = array(
                     "turn_cus_id" => $member->cus_id,
                     "turn_cli_id" => 0,//デフォルトは0
