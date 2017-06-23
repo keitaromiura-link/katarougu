@@ -75,7 +75,7 @@ class Game extends CI_Controller {
         }
         //現在の参加者からランダムでデータを取ってくる
         $members = $query->result();
-        $parent = array_rand($members);
+        $parent = $members[array_rand($members)];
         //カタログデータからランダムで一つ決定する
         $query = $this->db->order_by(23, 'RANDOM')->get('catalog',1);
         //カタログがなければリダイレクト
