@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     		<dt>お名前</dt>
   			<dd><?php echo html_escape($my->cus_name)?></dd>
   			<dt>再ログインurl</dt>
-  			<dd><a><?php echo site_url('top/login')?>/<?php echo html_escape($my->cus_id)?></a></dd>
+  			<dd><a href="<?php echo site_url('top/login')?>/<?php echo html_escape($my->cus_id)?>"><?php echo site_url('top/login')?>/<?php echo html_escape($my->cus_id)?></a></dd>
 		</dl>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
