@@ -20,12 +20,11 @@ class Game extends CI_Controller {
         $catalog = null;
         if ($now_game_id > 0) {
             //現在のゲームと親とカタログの状況を表示する
-            $query = $this->db->get_where('game', array('game_id', $now_game_id), 1);
+            $query = $this->db->get_where('game', array('game_id' => $now_game_id), 1);
             $game = $query->row();
-            var_dump($game);
-            $query = $this->db->get_where('customer', array('cus_id', $game->game_cus_id_parent ), 1);
+            $query = $this->db->get_where('customer', array('cus_id' => $game->game_cus_id_parent ), 1);
             $parant= $query->row();
-            $query = $this->db->get_where('catalog', array('cl_id', $game->game_cl_id), 1);
+            $query = $this->db->get_where('catalog', array('cl_id' => $game->game_cl_id), 1);
             $catalog= $query->row();
         }else {
             //何も表示しない
