@@ -62,6 +62,7 @@ class Top extends CI_Controller {
             //顧客データがなければ
             redirect("top/index");
         }
+        $my = $query->row();
 
         //現在のゲームの設定
         $query = $this->db->get_where('config', array('cfg_name' => 'now_game_id'), 1);
@@ -84,7 +85,6 @@ class Top extends CI_Controller {
             //何も表示しない
         }
 
-        $my = $query->row();
         $data = array(
             "my" => $my,
             "now_game_id" => $now_game_id,
