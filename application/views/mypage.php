@@ -42,6 +42,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('top/mypage')?>" role="button">更新する</a>
 
+    <h2>あなたの情報</h2>
+    <div>
+    	<dl class="dl-horizontal">
+    		<dt>お名前</dt>
+  			<dd><?php echo html_escape($my->cus_name)?></dd>
+  			<dt>再ログインurl</dt>
+  			<dd><a><?php echo site_url('top/login')?>/<?php echo html_escape($my->cus_id)?></a></dd>
+		</dl>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
