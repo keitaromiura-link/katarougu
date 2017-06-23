@@ -20,7 +20,8 @@ class Top extends CI_Controller {
     {
         //入力チェック
         //名前
-        if (!$cus_name = $this->input->post("cus_name")){
+        $cus_name = $this->input->post("cus_name");
+        if (!$cus_name){
             //名前がなければエラーにする。
             $this->index();
         }
