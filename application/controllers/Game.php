@@ -95,7 +95,7 @@ class Game extends CI_Controller {
         $this->db->insert("game", $data);
         $game_id = $this->db->insert_id();
 
-        $catalog_item_num = $this->db->where("cli_cli_id", $catalog->cl_id)->from('catalog_item')->count_all_results();
+        $catalog_item_num = $this->db->where("cli_cl_id", $catalog->cl_id)->from('catalog_item')->count_all_results();
         //カタログ項目がなければリダイレクト
         if ($catalog_item_num == 0) {
             $_SESSION['game_start_error'] = 350;
