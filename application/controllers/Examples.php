@@ -107,7 +107,7 @@ class Examples extends CI_Controller {
 	    ->display_as('game_upd_timestamp','更新日時')
 	    ;
 	    $crud->set_relation('game_cl_id','catalog','cl_name');
-	    $crud->set_relation('game_cus_id_parent','cutomser','cus_name');
+	    $crud->set_relation('game_cus_id_parent','customser','cus_name');
 	    $crud->set_subject('ゲーム');
 
 	    $crud->required_fields('game_cus_id_parent');
@@ -135,7 +135,7 @@ class Examples extends CI_Controller {
 	    ->display_as('turn_upd_timestamp','更新日時')
 	    ;
 	    $crud->set_relation('turn_cli_id','catalog_item','cli_name');
-	    $crud->set_relation('turn_cus_id','cutomser','cus_name');
+	    $crud->set_relation('turn_cus_id','customser','cus_name');
 	    $crud->set_relation('turn_game_id','game','game_id');
 	    $crud->set_subject('ターン');
 
