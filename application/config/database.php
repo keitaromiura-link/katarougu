@@ -73,12 +73,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => $_SERVER["ENV_DB_HOST"],
-    'username' => $_SERVER["ENV_DB_USER"],
-    'password' => $_SERVER["ENV_DB_PASS"],
-    'database' => $_SERVER["ENV_DB_NAME"],
+    'hostname' => $hostname,
+    'username' => $username,
+    'password' => $password,
+    'database' => $database,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
