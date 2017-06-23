@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             開催していません
           <?php }else {?>
             <?php if ($game) {?>
-                現在のゲームIDは「<?php echo $game->game_id?>」、ターンは<?php $game->game_now_turn_number?>ターン目です。<br>
+                現在のゲームIDは「<?php echo $game->game_id?>」、ターンは<?php echo $game->game_now_turn_number?>ターン目です。<br>
             <?php } ?>
             <?php if ($parent) { ?>
             	親は<?php echo html_escape($parent->cus_name)?>さんです。<br>
