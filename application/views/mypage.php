@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </head>
   <body>
 
-    <h1><?php html_escape($my->cus_name)?>さん参加ありがとうございます</h1>
+    <h1><?php echo html_escape($my->cus_name)?>さん参加ありがとうございます</h1>
     <div>
       <dl>
         <dt>現在のステイタス</dt>
