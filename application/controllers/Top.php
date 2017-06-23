@@ -103,7 +103,7 @@ class Top extends CI_Controller {
             redirect("top/index");
         }
 
-        $query = $this->get_where("customer", array("cus_id" => $cus_id), 1);
+        $query = $this->db->get_where("customer", array("cus_id" => $cus_id), 1);
         if ($query->num_rows() == 0) {
             //顧客データがなければ
             redirect("top/index");
