@@ -31,7 +31,7 @@ class Top extends CI_Controller {
             //名前がなければエラーにする。
             $_SESSION['cus_name_error'] = "名前を入力してください";
             $this->session->mark_as_flash('cus_name_error');
-            redirect("top/mypage");
+            redirect("top/index");
         }
 
         //ランダムな文字列を設定する
