@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <body>
 
     <h1>ゲームへようこそ</h1>
-    <form action="<?php echo site_url('index/join')?>">
+    <form action="<?php echo site_url('top/join')?>">
       <div class="form-group">
         <label for="cus_name">参加者名</label>
         <input type="text" class="form-control" id="cus_name" placeholder="予約太郎">
