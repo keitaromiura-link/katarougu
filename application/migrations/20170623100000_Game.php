@@ -17,7 +17,7 @@ class Migration_game extends CI_Migration {
                 'after' => 'game_cl_id'
             ),
         );
-        //$this->dbforge->add_column("game", $fields);
+        $this->dbforge->add_column("game", $fields);
 
         //customerに名前を追加
         $fields = array(
