@@ -23,7 +23,7 @@ class Top extends CI_Controller {
         $cus_name = $this->input->post("cus_name");
         if (!$cus_name){
             //名前がなければエラーにする。
-            $this->index();
+            redirect("top/mypage");
         }
 
         //ランダムな文字列を設定する
