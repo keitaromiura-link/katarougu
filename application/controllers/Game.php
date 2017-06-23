@@ -50,7 +50,7 @@ class Game extends CI_Controller {
             "parant" => $parant,
             "catalog" => $catalog,
         );
-        $this->load->view('game_manage');
+        $this->load->view('game_manage', $data);
     }
     public function start()
     {
