@@ -33,7 +33,7 @@ class Examples extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
-			$crud->set_theme('twitter-bootstrap');
+			$crud->set_theme('datatables');
 			$crud->set_table('catalog');
 			$crud->columns('cl_id','cl_name','cl_ins_timestamp','cl_upd_timestamp');
 			$crud->display_as('cl_id','カタログID')
@@ -54,7 +54,7 @@ class Examples extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
-			$crud->set_theme('twitter-bootstrap');
+			$crud->set_theme('datatables');
 			$crud->set_table('customer');
 			$crud->columns('cus_id','cus_name','cus_ins_timestamp','cus_upd_timestamp');
 			$crud->display_as('cus_id','会員番号')
@@ -72,7 +72,7 @@ class Examples extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
-			$crud->set_theme('twitter-bootstrap');
+			$crud->set_theme('datatables');
 			$crud->set_table('catalog_item');
 			$crud->columns('cli_id','cli_cl_id','cli_name','cli_ins_timestamp','cli_upd_timestamp');
 			$crud->display_as('cli_id','カタログ項目ID')
