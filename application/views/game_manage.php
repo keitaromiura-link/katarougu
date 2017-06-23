@@ -15,10 +15,52 @@
   </head>
   <body>
     <h1>ゲーム管理画面</h1>
+    <?php if ($game_start_error > 0) { ?>
+		<div class="alert alert-danger alert-dismissible fade in" role="alert">
+	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>ゲームがスタートできませんでした(<?php echo $game_start_error?>)</strong>
+		</div>
+	<?php } ?>
+	<?php if ($game_start_success) { ?>
+		<div class="alert alert-info alert-dismissible fade in" role="alert">
+	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>ゲームがスタートしました！</strong>
+		</div>
+	<?php } ?>
 
-    <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('game/start')?>" role="button">ゲームを開始する</a>
+    <div>
+      <dl>
+        <dt>現在のステータス</dt>
+        <dd>
+          <?php if ($now_game_id == 0) { ?>
+            開催していません
+          <?php }else {?>
+            <?php if ($game) {?>
+                現在のゲームIDは「<?php echo $game->game_id?>」、ターンは<?php $game->game_now_turn_number?>ターン目です。<br>
+            <?php } ?>
+            <?php if ($parent) { ?>
+            	親は<?php echo html_escape($parent->cus_name)?>さんです。<br>
+            <?php } ?>
+            <?php if ($catalog) { ?>
+            	カタログは<?php echo html_escape($catalog->cl_name)?>です。<br>
+            <?php } ?>
+          <?php }?>
+        </dd>
+        <dt>現在の参加者</dt>
+        <dd>
+        </dd>
+      </dl>
+    </div>
+    <?php if ($now_game_id == 0) { ?>
+      <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('game/start')?>" role="button">ゲームを開始する</a>
+    <?php } else { ?>
+      <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('game/nextgame')?>" role="button">ゲームをすすめる</a>
+    <?php } ?>
     <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('examples/customers_management')?>" role="button">データを確認する</a>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->

@@ -9,9 +9,47 @@ class Game extends CI_Controller {
     }
     public function manage()
     {
+        //現在のゲームIDを取得する
         $query = $this->db->get_where('config', array('cfg_name' => 'now_game_id'), 1);
         $row = $query->row();
         $now_game_id = (int) $row->cfg_data;
+
+        //ゲームIDが存在すれば
+        $game = null;
+        $parant = null;
+        $catalog = null;
+        if ($now_game_id > 0) {
+            //現在のゲームと親とカタログの状況を表示する
+            $query = $this->db->get_where('game', array('game_id', $now_game_id), 1);
+            $game = $query->row();
+            $query = $this->db->get_where('customer', array('cus_id', $game->game_cus_id_parent), 1);
+            $parant= $query->row();
+            $query = $this->db->get_where('catalog', array('cl_id', $game->game_cl_id), 1);
+            $catalog= $query->row();
+        }else {
+            //何も表示しない
+        }
+
+        //ゲームスタートからのリダイレクトの場合
+        $game_start_error = 0;
+        if (isset($_SESSION['game_start_error'])) {
+            $game_start_error = $_SESSION['game_start_error'];
+        }
+
+        //ゲームリダイレクトからの場合
+        $game_start_success = false;
+        if (isset($_SESSION['game_start_success'])) {
+            $game_start_success= $_SESSION['game_start_success'];
+        }
+        //Viewへ
+        $data = array(
+            "game_start_error" => $game_start_error,
+            "game_start_success" => $game_start_success,
+            "now_game_id" => $now_game_id,
+            "game" => $game,
+            "parant" => $parant,
+            "catalog" => $catalog,
+        );
         $this->load->view('game_manage');
     }
     public function start()
@@ -22,6 +60,8 @@ class Game extends CI_Controller {
         $row = $query->row();
         $now_game_id = (int) $row->cfg_data;
         if ($now_game_id > 0) {
+            $_SESSION['game_start_error'] = 110;
+            $this->session->mark_as_flash('game_start_error');
             //何もしないでgame/manageへリダイレクトさせる
             redirect("game/manage");
         }
@@ -29,6 +69,8 @@ class Game extends CI_Controller {
         $query = $this->db->get('customer');
         //参加者が居なければリダイレクト
         if ($query->num_rows() == 0) {
+            $_SESSION['game_start_error'] = 200;
+            $this->session->mark_as_flash('game_start_error');
             redirect("game/manage");
         }
         //現在の参加者からランダムでデータを取ってくる
@@ -38,6 +80,8 @@ class Game extends CI_Controller {
         $query = $this->db->order_by(23, 'RANDOM')->get('catalog',1);
         //カタログがなければリダイレクト
         if ($query->num_rows() == 0) {
+            $_SESSION['game_start_error'] = 300;
+            $this->session->mark_as_flash('game_start_error');
             redirect("game/manage");
         }
         $catalog = $query->row();
@@ -74,8 +118,14 @@ class Game extends CI_Controller {
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE)
         {
+            $_SESSION['game_start_error'] = 999;
+            $this->session->mark_as_flash('game_start_error');
             redirect("game/manage");
         }
+
+        $_SESSION['game_start_success'] = true;
+        $this->session->mark_as_flash('game_start_success');
+        redirect("game/manage");
     }
 
 }
