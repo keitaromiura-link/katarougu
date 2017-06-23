@@ -68,7 +68,7 @@ class Game extends CI_Controller {
         //現在の参加者を取得する
         $query = $this->db->get('customer');
         //参加者が3人以上いなければリダイレクト
-        if ($query->num_rows() >= 3) {
+        if ($query->num_rows() < 3) {
             $_SESSION['game_start_error'] = 200;
             $this->session->mark_as_flash('game_start_error');
             redirect("game/manage");

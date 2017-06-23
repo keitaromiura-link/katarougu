@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </head>
   <body>
     <h1>ゲーム管理画面</h1>
-    <?php if ($game_start_error> 0) { ?>
+    <?php if ($game_start_error > 0) { ?>
 		<div class="alert alert-danger alert-dismissible fade in" role="alert">
 	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
