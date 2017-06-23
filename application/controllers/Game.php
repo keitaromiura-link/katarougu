@@ -117,7 +117,7 @@ class Game extends CI_Controller {
                 array_push($data, $tmp);
             }
 
-            $this->db->insert_batch("game", $data);
+            $this->db->insert_batch("turn", $data);
         }
         //configの現在のゲームIDを変更する
         $this->db->where('cfg_name', "now_game_id")->update("config", array('cfg_data' => $game_id));
