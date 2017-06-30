@@ -136,4 +136,17 @@ class Game extends CI_Controller {
         redirect("game/manage");
     }
 
+    public function nextgame()
+    {
+        //今ゲームをやっているかチェック
+        //ターン数は
+        //ターンゼロの場合は
+        //親が選択しているか確認
+        //選択していればターン１になる
+        //ターンゼロ以外の場合は
+        //全員が選択しているか？
+        //選択していればターン一つ進める
+
+    }
+
 }
