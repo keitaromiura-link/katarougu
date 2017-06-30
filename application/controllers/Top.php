@@ -89,7 +89,7 @@ class Top extends CI_Controller {
             "my" => $my,
             "now_game_id" => $now_game_id,
             "game" => $game,
-            "parant" => $parent,
+            "parent" => $parent,
             "catalog" => $catalog,
         );
         $this->load->view('mypage', $data);
